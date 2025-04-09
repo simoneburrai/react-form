@@ -1,7 +1,6 @@
-function Article({ title, description }) {
+function Article({ title }) {
     return <div className="article">
         <h2>{title}</h2>
-        <p>{description}</p>
     </div>
 }
 
