@@ -6,11 +6,13 @@ function Main({ initialArticles }) {
     // Reactive Variables 
     const [articles, setArticles] = useState(initialArticles);
     const [inputTitle, setInputTitle] = useState("");
+    const [isClicked, setIsClicked] = useState(false);
 
     // Input Handler on Title Inserting 
     const handleInputEvent = (e) => {
         setInputTitle(e.target.value);
     }
+
 
     // Form management operations 
     const onSubmitFun = (event) => {
@@ -20,13 +22,11 @@ function Main({ initialArticles }) {
             const lastArticle = articles[articles.length - 1];
             newId = lastArticle.id + 1;
         } else { newId = 1 };
-        console.log(articles)
         const newArticle = {
             id: newId,
             title: inputTitle,
             description: "",
         };
-        console.log(newArticle);
         setInputTitle("");
         setArticles([...articles, newArticle]);
     }
@@ -37,20 +37,26 @@ function Main({ initialArticles }) {
         setArticles(updatedArticles);
     }
 
+    const newTitleSetting = (title, id) => {
+        currentElement = articles.find(article => article.id === id);
+        currentElement.title = title;
+        const modifiedArticles = articles.filter(article => article.id !== id)
+        setArticles([...modifiedArticles, currentElement]);
+    }
 
+    const clickedId = (id) => {
+        setIsClicked(true);
+    }
 
     return <main>
-        <div className="article-container">
-            {articles.map(article =>
-                <div key={article.id}>
-                    <Article title={article.title} key={article.id} />
-                    <button onClick={removeArticles(article.id)} >Cancella</button>
-                </div>
-            )}
-        </div>
+        {articles.map(article =>
+            <div className="article-container" key={article.id}>
+                <Article isClicked={isClicked} onClick={() => clickedId} title={article.title} key={article.id} newTitleSetting={newTitleSetting} id={article.id} />
+                <button onClick={() => removeArticles(article.id)} >Cancella</button>
+            </div>
+        )}
         <div className="form-container">
             <form onSubmit={onSubmitFun}>
-                {inputTitle}
                 <input type="text" value={inputTitle} onChange={handleInputEvent} />
                 <button >Send Form</button>
             </form>
@@ -58,5 +64,4 @@ function Main({ initialArticles }) {
     </main>
 
 }
-
 export default Main;
