@@ -1,7 +1,7 @@
-function Article() {
+function Article({ title, description }) {
     return <div className="article">
-        <h2>Titolo</h2>
-        <p>Descrizione articolo</p>
+        <h2>{title}</h2>
+        <p>{description}</p>
     </div>
 }
 

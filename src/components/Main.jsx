@@ -1,8 +1,8 @@
 import Article from "./Article";
 
-function Main() {
+function Main({ articles }) {
     return <div className="article-container">
-        <Article />
+        {articles.map(article => <Article title={article.title} key={article.id} description={article.description} />)}
     </div>
 }
 
