@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-      <Main articles={blogArticles} />
+      <Main initialArticles={blogArticles} />
     </>
   )
 }
