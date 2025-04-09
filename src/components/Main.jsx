@@ -6,7 +6,6 @@ function Main({ initialArticles }) {
     // Reactive Variables 
     const [articles, setArticles] = useState(initialArticles);
     const [inputTitle, setInputTitle] = useState("");
-    const [isClicked, setIsClicked] = useState(false);
 
     // Input Handler on Title Inserting 
     const handleInputEvent = (e) => {
@@ -38,20 +37,27 @@ function Main({ initialArticles }) {
     }
 
     const newTitleSetting = (title, id) => {
-        currentElement = articles.find(article => article.id === id);
-        currentElement.title = title;
-        const modifiedArticles = articles.filter(article => article.id !== id)
-        setArticles([...modifiedArticles, currentElement]);
-    }
+        const newArticle = {};
+        const modifiedArticles = articles.map(article => {
+            if (article.id === id) {
+                newArticle = {
+                    id,
+                    title,
+                    description: "",
+                }
 
-    const clickedId = (id) => {
-        setIsClicked(true);
+                return newArticle;
+            } else {
+                return article;
+            }
+        })
+        setArticles([...modifiedArticles, newArticle]);
     }
 
     return <main>
         {articles.map(article =>
             <div className="article-container" key={article.id}>
-                <Article isClicked={isClicked} onClick={() => clickedId} title={article.title} key={article.id} newTitleSetting={newTitleSetting} id={article.id} />
+                <Article title={article.title} key={article.id} newTitleSetting={newTitleSetting} id={article.id} />
                 <button onClick={() => removeArticles(article.id)} >Cancella</button>
             </div>
         )}
