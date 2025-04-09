@@ -31,7 +31,7 @@ function Main({ initialArticles }) {
         setArticles([...articles, newArticle]);
     }
 
-    remove Article Function(button)
+    // remove Article Function(button) 
     const removeArticles = (id) => {
         const updatedArticles = articles.filter((article) => article.id !== id)
         setArticles(updatedArticles);
