@@ -55,13 +55,21 @@ function Main({ initialArticles }) {
     }
 
     return <main>
-        {articles.map(article =>
-            <div className="article-container" key={article.id}>
-                <Article title={article.title} key={article.id} newTitleSetting={newTitleSetting} id={article.id} />
-                <button onClick={() => removeArticles(article.id)} >Cancella</button>
-            </div>
-        )}
+        <div className="articles-container">
+            {articles.map(article =>
+                <div className="article-card" key={article.id}>
+                    <Article
+                        title={article.title}
+                        key={article.id}
+                        newTitleSetting={newTitleSetting}
+                        id={article.id} />
+                    <button className="remove-button" onClick={() => removeArticles(article.id)} >Remove</button>
+                </div>
+            )}
+        </div>
+
         <div className="form-container">
+            <h3>Add a new Title</h3>
             <form onSubmit={onSubmitFun}>
                 <input type="text" value={inputTitle} onChange={handleInputEvent} />
                 <button >Send Form</button>
