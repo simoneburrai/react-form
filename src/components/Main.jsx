@@ -37,6 +37,9 @@ function Main({ initialArticles }) {
     }
 
     const newTitleSetting = (title, id) => {
+        if (!title) {
+            return;
+        }
         const modifiedArticles = articles.map(article => {
             if (article.id === id) {
                 const newArticle = {

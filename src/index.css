@@ -25,6 +25,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
 }
 
 .article-card {
@@ -52,6 +53,10 @@ main {
   background-color: coral;
   color: white;
   cursor: pointer;
+}
+
+.remove-button:hover {
+  background-color: darksalmon;
 }
 
 .form-container {
@@ -96,10 +101,16 @@ form input {
 
 form button {
   background-color: black;
+  border-radius: 10px;
   border: 0px;
   color: white;
   width: 40%;
   margin: 0 auto;
   padding: 10px;
   text-transform: uppercase;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: navy;
 }
