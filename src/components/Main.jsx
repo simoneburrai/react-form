@@ -3,13 +3,16 @@ import Article from "./Article";
 
 function Main({ initialArticles }) {
 
+    // Reactive Variables 
     const [articles, setArticles] = useState(initialArticles);
     const [inputTitle, setInputTitle] = useState("");
 
+    // Input Handler on Title Inserting 
     const handleInputEvent = (e) => {
         setInputTitle(e.target.value);
     }
 
+    // Form management operations 
     const onSubmitFun = (event) => {
         event.preventDefault();
         let newId;
@@ -23,17 +26,27 @@ function Main({ initialArticles }) {
             title: inputTitle,
             description: "",
         };
+        console.log(newArticle);
+        setInputTitle("");
         setArticles([...articles, newArticle]);
+    }
 
+    remove Article Function(button)
+    const removeArticles = (id) => {
+        const updatedArticles = articles.filter((article) => article.id !== id)
+        setArticles(updatedArticles);
     }
 
 
 
     return <main>
-
         <div className="article-container">
             {articles.map(article =>
-                <Article title={article.title} key={article.id} />)}
+                <div key={article.id}>
+                    <Article title={article.title} key={article.id} />
+                    <button onClick={removeArticles(article.id)} >Cancella</button>
+                </div>
+            )}
         </div>
         <div className="form-container">
             <form onSubmit={onSubmitFun}>
