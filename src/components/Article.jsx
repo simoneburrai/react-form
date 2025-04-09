@@ -5,7 +5,7 @@ function Article({ title, newTitleSetting, id }) {
     const [newTitle, setNewTitle] = useState(title);
     const inputTitle = <input value={newTitle} onChange={(e) => setNewTitle(e.target.value)}></input>
     const onSubmitTitle = (e) => {
-        e.preventDefault;
+        e.preventDefault();
         setNewTitle(newTitle);
         newTitleSetting(newTitle, id);
         setIsClicked(false);
