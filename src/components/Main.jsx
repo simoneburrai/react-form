@@ -45,8 +45,8 @@ function Main({ initialArticles }) {
                     "description": ""
 
                 }
-                article = newArticle;
-                return article;
+
+                return newArticle;
             } else {
                 return article;
             }
