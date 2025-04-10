@@ -12,3 +12,8 @@ Il bonus numero 1 consiste nell'inserire in pagina un bottone che permetta la ri
 
 Il bonus numero 2 consiste nella modifica della lista di articoli. Questo è possibile grazie alla generazione di un post tramite un click sul titolo.
 Al click apparirà un input che permetterà la modifica del titolo. All'invio l'input non si vedrà più e il titolo apparirà modificato.
+
+
+Ho apportato alcune modifiche riguardanti il CSS, qui di seguito il risultato finale.
+
+![Image](src/assets/desktop-screenshot.jpeg)
