@@ -12,10 +12,11 @@ function Article({ title, newTitleSetting, id }) {
     }
 
     return <div className="article">
-        <h2 onClick={() => setIsClicked(!isClicked)}>{title}</h2>
+        <h2 onClick={() => setIsClicked(!isClicked)}>{title}<span className="flag">click to modify</span>
+        </h2>
         {isClicked && <form onSubmit={onSubmitTitle}>
             {inputTitle}
-            <button><i class="fa-solid fa-pen-to-square"></i></button>
+            <button ><i className="fa-solid fa-pen-to-square"></i></button>
         </form>}
     </div>
 }

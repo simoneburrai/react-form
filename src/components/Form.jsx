@@ -6,7 +6,7 @@ function Form({ input, setInputTitle, onSubmit }) {
 
     return <>
         <input type="text" value={input} onChange={handleInputEvent} />
-        <button ><i class="fa-solid fa-circle-plus"></i></button>
+        <button ><i className="fa-solid fa-circle-plus"></i></button>
     </>
 }
 

@@ -64,7 +64,7 @@ function Main({ initialArticles }) {
                         key={article.id}
                         newTitleSetting={newTitleSetting}
                         id={article.id} />
-                    <button className="remove-button" onClick={() => removeArticles(article.id)} ><i class="fa-solid fa-trash"></i></button>
+                    <button className="remove-button" onClick={() => removeArticles(article.id)} ><i className="fa-solid fa-trash"></i></button>
                 </div>
             )}
         </div>
