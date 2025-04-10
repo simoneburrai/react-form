@@ -50,13 +50,14 @@ main {
   padding: 10px;
   border-radius: 10px;
   border: 0px;
-  background-color: coral;
+  background-color: transparent;
   color: white;
   cursor: pointer;
+  font-size: 20px;
 }
 
 .remove-button:hover {
-  background-color: darksalmon;
+  color: red;
 }
 
 .form-container {
@@ -91,16 +92,15 @@ form input {
   margin: 0 auto;
   border: 0px;
   text-align: center;
-  background-color: brown;
-  color: white;
+  background-color: white color: black;
   padding: 10px;
-  text-transform: uppercase;
   width: 70%;
   border-radius: 10px;
 }
 
 form button {
-  background-color: black;
+  background-color: transparent;
+  font-size: 30px;
   border-radius: 10px;
   border: 0px;
   color: white;
@@ -112,5 +112,5 @@ form button {
 }
 
 form button:hover {
-  background-color: navy;
+  color: green;
 }

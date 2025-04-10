@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Article from "./Article";
+import Form from "./Form";
 
 function Main({ initialArticles }) {
 
@@ -7,14 +8,11 @@ function Main({ initialArticles }) {
     const [articles, setArticles] = useState(initialArticles);
     const [inputTitle, setInputTitle] = useState("");
 
-    // Input Handler on Title Inserting 
-    const handleInputEvent = (e) => {
-        setInputTitle(e.target.value);
-    }
-
-
     // Form management operations 
     const onSubmitFun = (event) => {
+        if (!inputTitle) {
+            return
+        }
         event.preventDefault();
         let newId;
         if (articles.length > 0) {
@@ -66,7 +64,7 @@ function Main({ initialArticles }) {
                         key={article.id}
                         newTitleSetting={newTitleSetting}
                         id={article.id} />
-                    <button className="remove-button" onClick={() => removeArticles(article.id)} >Remove</button>
+                    <button className="remove-button" onClick={() => removeArticles(article.id)} ><i class="fa-solid fa-trash"></i></button>
                 </div>
             )}
         </div>
@@ -74,9 +72,9 @@ function Main({ initialArticles }) {
         <div className="form-container">
             <h3>Add a new Title</h3>
             <form onSubmit={onSubmitFun}>
-                <input type="text" value={inputTitle} onChange={handleInputEvent} />
-                <button >Send Form</button>
+                <Form input={inputTitle} setInputTitle={setInputTitle} />
             </form>
+
         </div>
     </main>
 

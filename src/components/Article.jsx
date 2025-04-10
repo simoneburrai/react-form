@@ -8,13 +8,15 @@ function Article({ title, newTitleSetting, id }) {
         e.preventDefault();
         setNewTitle(newTitle);
         newTitleSetting(newTitle, id);
-        setIsClicked(false);
+        setIsClicked(!isClicked);
     }
 
-    return <div onClick={() => setIsClicked(true)} className="article">
-        <h2>{title}</h2>
-        {isClicked && <form onSubmit={onSubmitTitle}> {inputTitle}
-            <button>Submit</button></form>}
+    return <div className="article">
+        <h2 onClick={() => setIsClicked(!isClicked)}>{title}</h2>
+        {isClicked && <form onSubmit={onSubmitTitle}>
+            {inputTitle}
+            <button><i class="fa-solid fa-pen-to-square"></i></button>
+        </form>}
     </div>
 }
 
